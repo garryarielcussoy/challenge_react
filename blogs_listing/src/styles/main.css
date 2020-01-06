@@ -11,6 +11,7 @@ header{
 .topic-menu, .register-menu{
     margin-top: 18px;
     text-align: left;
+    font-size: 0.9em;
 }
 
 .topic-menu li, .register-menu li{
@@ -27,4 +28,47 @@ header{
 .search-logo{
     width: 28px;
     height: 28px;
+}
+
+/* ----- BERITA TERKINI ----- */
+.berita-terkini{
+    margin-top: 40px;
+    border: solid rgba(105, 105, 105, 0.2) 0.5px;
+}
+
+.berita-terkini-first-row{
+    padding: 8px 0;
+}
+
+.berita-terkini-headline{
+    text-align: left;
+    font-weight: 900;
+    color: darkblue;
+    font-size: 0.85em;
+}
+
+.lihat-semua{
+    text-align: right;
+    font-weight: 500;
+    color: skyblue;
+    font-size: 0.75em;
+}
+
+.elemen-list-berita-terkini{
+    border-top: solid rgba(105, 105, 105, 0.2) 0.5px;
+    padding: 10px 15px;
+    color: skyblue;
+    font-weight: 800;
+}
+
+.tag-number{
+    background-color: red;
+    color: white;
+    font-size: 0.8em;
+    padding: 1px 10px;
+    border-radius: 10px;
+}
+
+.judul-berita-terkini{
+    font-size: 0.8em;
 }
