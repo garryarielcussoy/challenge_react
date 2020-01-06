@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import {FirstPage} from './page/FirstPage';
+import {SecondPage} from './page/SecondPage';
+import {ContactPage} from './page/ContactPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    // Uncomment one of the following page and comment the others to see the page in action
+    return (
+      <div className="App">
+        <FirstPage />
+        {/* <SecondPage /> */}
+        {/* <ContactPage /> */}
+      </div>
+    );
+  }
 }
 
 export default App;
