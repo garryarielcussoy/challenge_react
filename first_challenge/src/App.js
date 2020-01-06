@@ -9,9 +9,9 @@ class App extends Component {
     // Uncomment one of the following page and comment the others to see the page in action
     return (
       <div className="App">
-        <FirstPage />
+        {/* <FirstPage /> */}
         {/* <SecondPage /> */}
-        {/* <ContactPage /> */}
+        <ContactPage />
       </div>
     );
   }
