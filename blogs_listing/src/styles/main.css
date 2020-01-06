@@ -1,5 +1,20 @@
 /* ----- HEADER ----- */
+header{
+    background-color: rgba(105, 105, 105, 0.1);
+}
+
 .react-logo{
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
+}
+
+.topic-menu{
+    margin-top: 18px;
+    text-align: left;
+}
+
+.topic-menu li{
+    display: inline-block;
+    padding: 10px;
+    color: rgba(105, 105, 105, 0.8);
 }
