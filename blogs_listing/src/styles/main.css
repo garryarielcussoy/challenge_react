@@ -25,6 +25,12 @@ header{
     text-align: center;
 }
 
+button{
+    background-color: white;
+    border: white;
+    border-radius: 5px;
+}
+
 .search-logo{
     width: 28px;
     height: 28px;
@@ -104,4 +110,18 @@ header{
     font-weight: 700;
     opacity: 0.5;
     padding: 0 10px;
+}
+
+.love-share-dislike{
+    background-color: rgba(105, 105, 105, 0.1);
+    padding: 5px 10px;
+}
+
+.love, .share, .dislike{
+    text-align: center;
+}
+
+.a-pack-of-icons{
+    width: 15px;
+    height: 15px;
 }
