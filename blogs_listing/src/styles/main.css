@@ -50,15 +50,19 @@ header{
 .lihat-semua{
     text-align: right;
     font-weight: 500;
-    color: skyblue;
+    color: blue;
     font-size: 0.75em;
 }
 
 .elemen-list-berita-terkini{
     border-top: solid rgba(105, 105, 105, 0.2) 0.5px;
     padding: 10px 15px;
-    color: skyblue;
+    color: blue;
     font-weight: 800;
+}
+
+.elemen-list-berita-terkini-kosong{
+    border-top: solid rgba(105, 105, 105, 0.2) 0.5px;
 }
 
 .tag-number{
@@ -71,4 +75,33 @@ header{
 
 .judul-berita-terkini{
     font-size: 0.8em;
+}
+
+/* ----- KONTEN UTAMA ----- */
+.konten-utama{
+    margin-top: 40px;
+    border: solid rgba(105, 105, 105, 0.2) 0.5px;
+}
+
+.content-image{
+    width: 100%;
+}
+
+.judul-konten-utama{
+    font-size: 1em;
+    font-weight: 750;
+    padding: 10px 10px;
+}
+
+.isi-konten-utama{
+    font-size: 0.8em;
+    font-weight: 400;
+    padding: 0 10px;
+}
+
+.last-update{
+    font-size: 0.7em;
+    font-weight: 700;
+    opacity: 0.5;
+    padding: 0 10px;
 }

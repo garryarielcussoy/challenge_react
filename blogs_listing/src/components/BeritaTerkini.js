@@ -23,14 +23,15 @@ export class BeritaTerkini extends React.Component {
                             <span>Lihat Semua</span>
                         </div>
                     </div>
-                    <div className='row list-berita-terkini'>
                         {judulBeritaTerkini.map((element, i) => 
-                            <div className='col-12 elemen-list-berita-terkini'>
-                                <div><span className='tag-number'>#{i+1}</span></div>
-                                <div><span className='judul-berita-terkini'>{element}</span></div>
+                            <div className='row list-berita-terkini'>
+                                <div className='col-10 elemen-list-berita-terkini'>
+                                    <div><span className='tag-number'>#{i+1}</span></div>
+                                    <div><span className='judul-berita-terkini'>{element}</span></div>
+                                </div>
+                                <div className='col-2 elemen-list-berita-terkini-kosong'></div>
                             </div>
                         )}
-                    </div>
                 </div>
             </div>
         )
