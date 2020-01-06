@@ -8,12 +8,12 @@ header{
     height: 80px;
 }
 
-.topic-menu{
+.topic-menu, .register-menu{
     margin-top: 18px;
     text-align: left;
 }
 
-.topic-menu li{
+.topic-menu li, .register-menu li{
     display: inline-block;
     padding: 10px;
     color: rgba(105, 105, 105, 0.8);
@@ -22,4 +22,9 @@ header{
 .search-bar{
     margin-top: 22px;
     text-align: center;
+}
+
+.search-logo{
+    width: 28px;
+    height: 28px;
 }

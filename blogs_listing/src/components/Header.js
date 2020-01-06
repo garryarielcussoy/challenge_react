@@ -26,7 +26,12 @@ export class Header extends React.Component {
                         <div className='col-4'>
                             <SearchBar />
                         </div>
-                        <div className='col-2'></div>
+                        <div className='col-2'>
+                            <ul className='list-unstyled register-menu'>
+                                <li>Masuk</li>
+                                <li>Daftar</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </header>
