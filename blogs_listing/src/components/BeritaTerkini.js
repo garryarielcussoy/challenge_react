@@ -20,14 +20,14 @@ export class BeritaTerkini extends React.Component {
                             <span>BERITA TERKINI</span>
                         </div>
                         <div className='col-6 lihat-semua'>
-                            <span>Lihat Semua</span>
+                            <span><a className='lihat-semua-link' href=''>Lihat Semua</a></span>
                         </div>
                     </div>
                         {judulBeritaTerkini.map((element, i) => 
                             <div className='row list-berita-terkini'>
                                 <div className='col-10 elemen-list-berita-terkini'>
                                     <div><span className='tag-number'>#{i+1}</span></div>
-                                    <div><span className='judul-berita-terkini'>{element}</span></div>
+                                    <div><a href='' className='judul-berita-terkini'>{element}</a></div>
                                 </div>
                                 <div className='col-2 elemen-list-berita-terkini-kosong'></div>
                             </div>

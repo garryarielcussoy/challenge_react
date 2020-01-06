@@ -17,6 +17,19 @@ header{
 .topic-menu li, .register-menu li{
     display: inline-block;
     padding: 10px;
+}
+
+.topic-menu li a, .register-menu li a{
+    color: rgba(105, 105, 105, 0.8);
+}
+
+.topic-menu li a:hover, .register-menu li a:hover{
+    color: rgba(105, 105, 105, 0.8);
+    text-decoration: none;
+}
+
+.dropdown-in-header{
+    border: none;
     color: rgba(105, 105, 105, 0.8);
 }
 
@@ -56,8 +69,16 @@ button{
 .lihat-semua{
     text-align: right;
     font-weight: 500;
-    color: blue;
     font-size: 0.75em;
+}
+
+.lihat-semua-link{
+    color: blue;
+}
+
+.lihat-semua-link:hover{
+    color: blue;
+    text-decoration: none;
 }
 
 .elemen-list-berita-terkini{
@@ -81,6 +102,12 @@ button{
 
 .judul-berita-terkini{
     font-size: 0.8em;
+    color: blue;
+}
+
+.judul-berita-terkini:hover{
+    color: blue;
+    text-decoration: none;
 }
 
 /* ----- KONTEN UTAMA ----- */
