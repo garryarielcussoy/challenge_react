@@ -18,3 +18,8 @@ header{
     padding: 10px;
     color: rgba(105, 105, 105, 0.8);
 }
+
+.search-bar{
+    margin-top: 22px;
+    text-align: center;
+}

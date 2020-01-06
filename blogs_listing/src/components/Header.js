@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/bootstrap.min.css'
 import '../styles/main.css'
 import reactLogo from '../img/logo.svg'
+import {SearchBar} from './SearchBar'
 
 export class Header extends React.Component {
     render(){
@@ -22,7 +23,9 @@ export class Header extends React.Component {
                                 <li>Lainnya</li>
                             </ul>
                         </div>
-                        <div className='col-4'></div>
+                        <div className='col-4'>
+                            <SearchBar />
+                        </div>
                         <div className='col-2'></div>
                     </div>
                 </div>
