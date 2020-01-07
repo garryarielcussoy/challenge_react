@@ -186,3 +186,21 @@ button{
     width: 15px;
     height: 15px;
 }
+
+/* ----- LOGIN SESSION ----- */
+.login-sheet{
+    border: 1px solid rgba(105, 105, 105, 0.2);
+    background-color: rgba(128, 128, 128, 0.2);
+    margin-top: 100px;
+    padding-bottom: 40px;
+}
+
+.login-session{
+    text-align: center;
+}
+
+.h3-login{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-weight: 700;
+}

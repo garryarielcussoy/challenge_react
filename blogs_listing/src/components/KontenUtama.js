@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/bootstrap.min.css'
-import putriAyako from '../img/putri_ayako.jpeg'
 import heartIcon from '../img/heart_icon.png'
 import shareIcon from '../img/share_icon.png'
 import dislikeIcon from '../img/dislike_icon.png'
@@ -13,9 +12,49 @@ const baseUrl = 'https://newsapi.org/v2/'
 const urlHeadline = baseUrl + "everything?sources=cnn&apiKey=" + apiKey
 
 export class KontenUtama extends React.Component {
+    // Define state
     state = {
         beritaUtama: [],
-        isLoading: true
+        isLoading: true,
+        keyWord: this.props.keyWord
+    }
+
+    // Handle Change
+    handleChange = event => {
+        console.warn('check handleChange', event)
+        this.setState({keyWord: event.target.value})
+        console.warn('check keyWord', this.state.keyWord)
+    }
+
+    // Searching function
+    searchingByKeyword = async keyWord => {
+        console.warn("Checking keyWord", keyWord)
+        const self = this;
+        if(keyWord.length > 0){
+            await axios
+                .get(baseUrl + "everything?q=" + keyWord + "&apiKey=" + apiKey)
+                .then(function(response){
+                    self.setState({beritaUtama: response.data.articles, isLoading: false})
+                })
+                .catch(function(response){
+                    self.setState({isLoading: false})
+                })
+        }
+    }
+
+    // Receive new components
+    componentWillReceiveProps = (incomingChange) => {
+        console.warn('incoming change on props value', incomingChange.category)
+        const self = this;
+        axios
+            .get(baseUrl + "everything?q=" + incomingChange.category + "&apiKey=" + apiKey)
+            .then(function(response){
+                self.setState({beritaUtama: response.data.articles, isLoading: false})
+            })
+            .catch(function(response){
+                self.setState({isLoading: false})
+            })
+        console.warn('response', this.state.beritaUtama)
     }
     
     componentDidMount = () => {
