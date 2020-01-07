@@ -1,10 +1,10 @@
 import React from 'react';
-import {MainPage} from './pages/MainPage'
+import {MainRoute} from './Routes/MainRoute'
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <MainRoute />
     </div>
   );
 }

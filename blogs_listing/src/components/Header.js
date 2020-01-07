@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/bootstrap.min.css'
 import '../styles/main.css'
 import reactLogo from '../img/logo.svg'
-import {SearchBar} from './SearchBar'
+import searchLogo from '../img/search.png'
 
 export class Header extends React.Component {
     render(){
@@ -31,7 +31,12 @@ export class Header extends React.Component {
                             </ul>
                         </div>
                         <div className='col-3'>
-                            <SearchBar />
+                        <div className="search-bar">
+                            <form>
+                                <input type="text" placeholder="Search"></input>
+                                <button type="submit"><img src={searchLogo} className="search-logo" /></button>
+                            </form>
+                        </div>
                         </div>
                         <div className='col-2'>
                             <ul className='list-unstyled register-menu'>
