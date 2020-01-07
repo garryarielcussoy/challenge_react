@@ -3,22 +3,30 @@ import '../styles/bootstrap.min.css'
 import {Header} from '../components/Header'
 import {BeritaTerkini} from '../components/BeritaTerkini'
 import {KontenUtama} from '../components/KontenUtama'
+import {KontenUtamaKategori} from '../components/KontenUtamaKategori'
 
 export class MainPage extends React.Component {
     // Define state
     state = {
-        category: 'Health'
+        category: '',
+        keyWord: '',
+        categoryOrSearch: ''
     }
     
     clickTab = async (something) => {
-        await this.setState({category: something})
+        await this.setState({category: something, categoryOrSearch: 'category'})
         console.warn('check state value of category', this.state.category)
+    }
+
+    searchByWord = async(something) => {
+        await this.setState({keyWord: something, categoryOrSearch: 'search'})
+        console.warn('check state value of keyword', this.state.keyWord)
     }
 
     render() {
         return (
             <div>
-                <Header clickTab={(value) => this.clickTab(value)}/>
+                <Header clickTab={(value) => this.clickTab(value)} searchByWord={(value) => this.searchByWord(value)}/>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-6'>
@@ -36,7 +44,7 @@ export class MainPage extends React.Component {
                             <div className='container-fluid'>
                                 <div className='row'>
                                     <div className='col-10'>
-                                        <KontenUtama clickTab={(value) => this.clickTab(value)} category={this.state.category}/>
+                                        {this.state.categoryOrSearch === 'category' ? <KontenUtamaKategori category={this.state.category}/> : <KontenUtama keyWord={this.state.keyWord}/>}
                                     </div>
                                     <div className='col-2'></div>
                                 </div>

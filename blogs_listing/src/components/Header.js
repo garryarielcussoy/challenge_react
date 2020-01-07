@@ -5,7 +5,7 @@ import reactLogo from '../img/logo.svg'
 import {SearchBar} from '../components/SearchBar'
 import {BrowserRouter, Route, Link} from 'react-router-dom'
 
-const listCategory = ["sport", "economy", "health", "entertainment"]
+const listCategory = ["Sport", "Economy", "Health", "Entertainment"]
 
 export class Header extends React.Component {    
     render(){
@@ -27,14 +27,15 @@ export class Header extends React.Component {
                                     <form>
                                         <select className='dropdown-in-header'>
                                             <option value='Lainnya'>Lainnya</option>
-                                            <option value='Olahraga'>Olahraga</option>
+                                            <option value='Hobi'>Hobbies</option>
                                         </select>
                                     </form>
                                 </li>
                             </ul>
                         </div>
                         <div className='col-3'>
-                            <SearchBar liftState={this.liftState}/>
+                            {console.warn(this.props)}
+                            <SearchBar searchByWord={(value) => this.props.searchByWord(value)}/>
                         </div>
                         <div className='col-2'>
                             <ul className='list-unstyled register-menu'>

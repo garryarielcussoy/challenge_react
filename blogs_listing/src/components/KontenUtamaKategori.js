@@ -11,7 +11,7 @@ const apiKey = '9975f97755874c9fb9b501d61a9cff2a'
 const baseUrl = 'https://newsapi.org/v2/'
 const urlHeadline = baseUrl + "everything?sources=cnn&apiKey=" + apiKey
 
-export class KontenUtama extends React.Component {
+export class KontenUtamaKategori extends React.Component {
     // Define state
     state = {
         beritaUtama: [],
@@ -21,21 +21,18 @@ export class KontenUtama extends React.Component {
 
     // Receive new props
     componentWillReceiveProps = (incomingChange) => {
-        console.warn('incoming change on props value', incomingChange.keyWord)
+        console.warn('incoming change on props value', incomingChange.category)
         const self = this;
         
-        if(incomingChange.keyWord.length > 2)
-        {
-            axios
-                .get(baseUrl + "everything?q=" + incomingChange.keyWord + "&apiKey=" + apiKey)
-                .then(function(response){
-                    self.setState({beritaUtama: response.data.articles, isLoading: false})
-                })
-                .catch(function(response){
-                    self.setState({isLoading: false})
-                })
-                console.warn('response', this.state.beritaUtama)
-        }
+        axios
+            .get(baseUrl + "everything?q=" + incomingChange.category + "&apiKey=" + apiKey)
+            .then(function(response){
+                self.setState({beritaUtama: response.data.articles, isLoading: false})
+            })
+            .catch(function(response){
+                self.setState({isLoading: false})
+            })
+            console.warn('response', this.state.beritaUtama)
     }
     
     componentDidMount = () => {
