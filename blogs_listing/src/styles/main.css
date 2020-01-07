@@ -53,6 +53,7 @@ button{
 .berita-terkini{
     margin-top: 40px;
     border: solid rgba(105, 105, 105, 0.2) 0.5px;
+    margin-bottom: 50px;
 }
 
 .berita-terkini-first-row{
@@ -110,9 +111,30 @@ button{
     text-decoration: none;
 }
 
+.while-loading{
+    text-align: center;
+    margin-top: 200px;
+}
+
+.loading-image{
+    width: 120px;
+    height: 120px;
+    animation: loading-image-spin infinite 1s linear;
+}
+
+@keyframes loading-image-spin{
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
 /* ----- KONTEN UTAMA ----- */
 .konten-utama{
     margin-top: 40px;
+    margin-bottom: 10px;;
+}
+
+.each-content{
+    margin-bottom: 40px;
     border: solid rgba(105, 105, 105, 0.2) 0.5px;
 }
 
@@ -124,6 +146,17 @@ button{
     font-size: 1em;
     font-weight: 750;
     padding: 10px 10px;
+}
+
+.judul-konten-utama a{
+    color: black;
+}
+
+.judul-konten-utama a:hover{
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 750;
+    color: black;
 }
 
 .isi-konten-utama{

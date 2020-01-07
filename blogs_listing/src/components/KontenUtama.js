@@ -4,23 +4,75 @@ import putriAyako from '../img/putri_ayako.jpeg'
 import heartIcon from '../img/heart_icon.png'
 import shareIcon from '../img/share_icon.png'
 import dislikeIcon from '../img/dislike_icon.png'
+import axios from 'axios'
+import loadingLogo from '../img/logo.svg'
+
+// News API
+const apiKey = '9975f97755874c9fb9b501d61a9cff2a'
+const baseUrl = 'https://newsapi.org/v2/'
+const urlHeadline = baseUrl + "everything?sources=cnn&apiKey=" + apiKey
 
 export class KontenUtama extends React.Component {
+    state = {
+        beritaUtama: [],
+        isLoading: true
+    }
+    
+    componentDidMount = () => {
+        const self = this;
+        axios
+            .get(urlHeadline)
+            .then(function(response){
+                self.setState({beritaUtama: response.data.articles, isLoading: false})
+            })
+            .catch(function(response){
+                self.setState({isLoading: false})
+            })
+    }
+
     render(){
-        return (
-            <div className='konten-utama'>
-                <img className='content-image' src={putriAyako} alt=''/>
-                <h3 className='judul-konten-utama'>Nikahi Rakyat Jelata, Putri Ayako dari Jepang Lepaskan Gelar Kerajaan</h3>
-                <p className='isi-konten-utama'> Pernikahan Putri Ayako dan Kei Moriya dilangsungkan lewat upacara tradisional Jepang</p>
-                <p className='last-update'>Last updated 3 mins ago</p>
-                <div className='container-fluid love-share-dislike'>
-                    <div className='row'>
-                        <div className='col-4 love'><img className='a-pack-of-icons' src={heartIcon}/></div>
-                        <div className='col-4 share'><img className='a-pack-of-icons' src={shareIcon}/></div>
-                        <div className='col-4 dislike'><img className='a-pack-of-icons' src={dislikeIcon}/></div>
+        const {beritaUtama, isLoading} = this.state
+
+        // Take news only if the image is not null
+        const beritaUtamaDenganImage = beritaUtama.filter(element => element.urlToImage !== null) 
+
+        // To take the first ten news
+        const beritaUtamaTeratas = beritaUtamaDenganImage.filter((element, key) => 
+        key <= 9);
+
+        // Case while not loading
+        if (isLoading === false){
+            return (
+                <div className='konten-utama'>
+                    {beritaUtamaTeratas.map((element, key) =>
+                        <div className='each-content'>
+                            <img className='content-image' src={element.urlToImage} alt=''/>
+                            <h3 className='judul-konten-utama'><a href={element.url} target='_blank'>{element.title}</a></h3>
+                            <p className='isi-konten-utama'>{element.description}</p>
+                            <p className='last-update'>Published At: {element.publishedAt}</p>
+                            <div className='container-fluid love-share-dislike'>
+                                <div className='row'>
+                                    <div className='col-4 love'><img className='a-pack-of-icons' src={heartIcon}/></div>
+                                    <div className='col-4 share'><img className='a-pack-of-icons' src={shareIcon}/></div>
+                                    <div className='col-4 dislike'><img className='a-pack-of-icons' src={dislikeIcon}/></div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )
+        }
+
+        // Case while loading
+        else {
+            return (
+                <div className='while-loading'>
+                    Loading...
+                    <div>
+                        <img className='loading-image' src={loadingLogo} />
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }

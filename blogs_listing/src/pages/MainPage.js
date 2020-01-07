@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/bootstrap.min.css'
 import {Header} from '../components/Header'
 import {BeritaTerkini} from '../components/BeritaTerkini'
-import { KontenUtama } from '../components/KontenUtama'
+import {KontenUtama} from '../components/KontenUtama'
 
 export class MainPage extends React.Component {
     render() {
