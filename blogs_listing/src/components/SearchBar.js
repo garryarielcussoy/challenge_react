@@ -4,6 +4,8 @@ import '../styles/main.css'
 import searchLogo from '../img/search.png'
 
 export class SearchBar extends React.Component {
+    
+    
     render(){
         return (
             <div className="search-bar">
