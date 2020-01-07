@@ -69,17 +69,18 @@ button{
 
 .lihat-semua{
     text-align: right;
-    font-weight: 500;
-    font-size: 0.75em;
 }
 
 .lihat-semua-link{
+    font-weight: 500;
+    font-size: 0.75em;
     color: blue;
 }
 
 .lihat-semua-link:hover{
     color: blue;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .elemen-list-berita-terkini{

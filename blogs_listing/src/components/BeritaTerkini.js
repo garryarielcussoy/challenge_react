@@ -31,8 +31,7 @@ export class BeritaTerkini extends React.Component {
         const {judulBeritaTerkini, isLoading} = this.state
         
         // To take the first five top headlines
-        const top_five_headlines = judulBeritaTerkini.filter((element, key) => 
-        key <= 4);
+        const top_five_headlines = judulBeritaTerkini.filter((element, key) => key <= 4);
         
         // Case when isLoading is false
         if (isLoading === false){
@@ -44,7 +43,7 @@ export class BeritaTerkini extends React.Component {
                                 <span>BERITA TERKINI</span>
                             </div>
                             <div className='col-6 lihat-semua'>
-                                <span><a className='lihat-semua-link' href=''>Lihat Semua</a></span>
+                                <span className='lihat-semua-link'>Lihat Semua</span>
                             </div>
                         </div>
                             {top_five_headlines.map((element, i) => 
