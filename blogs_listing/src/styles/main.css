@@ -204,3 +204,9 @@ button{
     margin-bottom: 40px;
     font-weight: 700;
 }
+
+/* ----- PROFILE ----- */
+.profile-content{
+    text-align: center;
+    margin-top: 80px;
+}

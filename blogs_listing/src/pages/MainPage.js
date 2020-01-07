@@ -9,8 +9,8 @@ export class MainPage extends React.Component {
     // Define state
     state = {
         category: '',
-        keyWord: '',
-        categoryOrSearch: ''
+        keyWord: 'math',
+        categoryOrSearch: 'math'
     }
     
     clickTab = async (something) => {

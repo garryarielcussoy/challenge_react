@@ -35,12 +35,12 @@ export class Header extends React.Component {
                         </div>
                         <div className='col-3'>
                             {console.warn(this.props)}
-                            <SearchBar searchByWord={(value) => this.props.searchByWord(value)}/>
+                            <SearchBar searchByWord={(value) => this.props.searchByWord(value)} {...this.props}/>
                         </div>
                         <div className='col-2'>
                             <ul className='list-unstyled register-menu'>
                                 <li><a href=''><Link to='/masuk'>Masuk</Link></a></li>
-                                <li><a href=''><Link to='/masuk'>Daftar</Link></a></li>
+                                <li><a href=''><Link to='/profile'>Profile</Link></a></li>
                             </ul>
                         </div>
                     </div>
