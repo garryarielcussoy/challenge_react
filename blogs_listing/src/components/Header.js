@@ -26,7 +26,7 @@ export class Header extends React.Component {
                 <div className='container-fluid'>
                     <div className='row'>
                         <div className='col-2'>
-                            <img src={reactLogo} className='react-logo'/>
+                            <Link to='/'><img src={reactLogo} className='react-logo'/></Link>
                             <span>KabarKabar</span>
                         </div>
                         <div className='col-5'>
