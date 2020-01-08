@@ -3,12 +3,23 @@ import '../styles/bootstrap.min.css'
 import '../styles/main.css'
 import reactLogo from '../img/logo.svg'
 import {SearchBar} from '../components/SearchBar'
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link, Redirect} from 'react-router-dom'
 
 const listCategory = ["Sport", "Economy", "Health", "Entertainment"]
 
 export class Header extends React.Component {    
+    handleClick = () => {
+        console.warn("check whether handleClick is execute or not")
+        localStorage.removeItem("is_login");
+        localStorage.removeItem("accKey");
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        alert("Sukses logout")
+        return <Redirect to={{ pathname: "/" }} />;
+    }
+    
     render(){
+        const is_login = JSON.parse(localStorage.getItem("is_login"));
         console.warn(this.props)
         return (
             <header>
@@ -39,7 +50,7 @@ export class Header extends React.Component {
                         </div>
                         <div className='col-2'>
                             <ul className='list-unstyled register-menu'>
-                                <li><a href=''><Link to='/masuk'>Masuk</Link></a></li>
+                                {is_login === true ? <li><a href='' onClick={() => this.handleClick()}>Keluar</a></li> : <li><a href=''><Link to='/masuk'>Masuk</Link></a></li>}
                                 <li><a href=''><Link to='/profile'>Profile</Link></a></li>
                             </ul>
                         </div>

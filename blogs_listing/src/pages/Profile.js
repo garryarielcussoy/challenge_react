@@ -31,7 +31,6 @@ export const Profile = props => {
           <p>
             <label>Full Name:</label> {full_name}
           </p>
-          <button>Logout</button>
         </form>
       </React.Fragment>
     );
