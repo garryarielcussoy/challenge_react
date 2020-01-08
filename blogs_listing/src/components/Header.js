@@ -50,30 +50,22 @@ export class Header extends React.Component {
             <header>
                 <div className='container-fluid'>
                     <div className='row'>
-                        <div className='col-2'>
+                        <div className='col-md-2 col-sm-12'>
                             <Link to='/'><img src={reactLogo} className='react-logo'/></Link>
                             <span>KabarKabar</span>
                         </div>
-                        <div className='col-5'>
+                        <div className='col-md-5 col-sm-12'>
                             <ul className='list-unstyled topic-menu'>
                             {listCategory.map(category => 
                                 <li><a onClick={() => this.clickTab(category)} href=''><Link to={'/category/' + category}>{category}</Link></a></li>
                             )}
-                                <li>
-                                    <form>
-                                        <select className='dropdown-in-header'>
-                                            <option value='Lainnya'>Lainnya</option>
-                                            <option value='Hobi'>Hobbies</option>
-                                        </select>
-                                    </form>
-                                </li>
                             </ul>
                         </div>
-                        <div className='col-3'>
+                        <div className='col-md-3 col-sm-12'>
                             {console.warn(this.props)}
                             <SearchBar />
                         </div>
-                        <div className='col-2'>
+                        <div className='col-md-2 col-sm-12'>
                             <ul className='list-unstyled register-menu'>
                                 {this.props.isLogin === true ? <li><a href='' onClick={() => this.handleClick()}>Keluar</a></li> : <li><a href=''><Link to='/masuk'>Masuk</Link></a></li>}
                                 <li><a href=''><Link to='/profile'>Profile</Link></a></li>

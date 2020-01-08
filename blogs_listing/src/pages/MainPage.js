@@ -32,24 +32,24 @@ export class MainPage extends React.Component {
                 <Header />
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-6'>
+                        <div className='col-md-6 col-sm-12'>
                             <div className='container-fluid'>
                                 <div className='row'>
-                                    <div className='col-2'></div>
-                                    <div className='col-9'>
+                                    <div className='col-md-2 col-sm-1'></div>
+                                    <div className='col-md-9 col-sm-10'>
                                         <BeritaTerkini />
                                     </div>
                                     <div className='col-1'></div>
                                 </div>
                             </div>
                         </div>
-                        <div className='col-6'>
+                        <div className='col-md-6 col-sm-12'>
                             <div className='container-fluid'>
                                 <div className='row'>
-                                    <div className='col-10'>
+                                    <div className='col-md-10 col-sm-11'>
                                         {this.props.categoryOrSearch === 'category' ? <KontenUtamaKategori /> : <KontenUtama />}
                                     </div>
-                                    <div className='col-2'></div>
+                                    <div className='col-md-2 col-sm-1'></div>
                                 </div>
                             </div>
                         </div>
