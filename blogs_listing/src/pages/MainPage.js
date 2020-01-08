@@ -4,29 +4,32 @@ import {Header} from '../components/Header'
 import {BeritaTerkini} from '../components/BeritaTerkini'
 import {KontenUtama} from '../components/KontenUtama'
 import {KontenUtamaKategori} from '../components/KontenUtamaKategori'
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions, store } from "../store";
 
 export class MainPage extends React.Component {
     // Define state
-    state = {
-        category: '',
-        keyWord: 'math',
-        categoryOrSearch: 'math'
-    }
+    // state = {
+    //     category: '',
+    //     keyWord: 'math',
+    //     categoryOrSearch: 'math'
+    // }
     
-    clickTab = async (something) => {
-        await this.setState({category: something, categoryOrSearch: 'category'})
-        console.warn('check state value of category', this.state.category)
-    }
+    // clickTab = async (something) => {
+    //     await store.setState({category: something, categoryOrSearch: 'category'})
+    //     console.warn('check state value of category', this.props.category)
+    // }
 
-    searchByWord = async(something) => {
-        await this.setState({keyWord: something, categoryOrSearch: 'search'})
-        console.warn('check state value of keyword', this.state.keyWord)
-    }
+    // searchByWord = async(something) => {
+    //     await store.setState({keyWord: something, categoryOrSearch: 'search'})
+    //     console.warn('check state value of keyword', this.props.keyWord)
+    // }
 
     render() {
         return (
             <div>
-                <Header clickTab={(value) => this.clickTab(value)} searchByWord={(value) => this.searchByWord(value)}/>
+                <Header />
                 <div className='container'>
                     <div className='row'>
                         <div className='col-6'>
@@ -44,7 +47,7 @@ export class MainPage extends React.Component {
                             <div className='container-fluid'>
                                 <div className='row'>
                                     <div className='col-10'>
-                                        {this.state.categoryOrSearch === 'category' ? <KontenUtamaKategori category={this.state.category}/> : <KontenUtama keyWord={this.state.keyWord}/>}
+                                        {this.props.categoryOrSearch === 'category' ? <KontenUtamaKategori /> : <KontenUtama />}
                                     </div>
                                     <div className='col-2'></div>
                                 </div>
@@ -56,3 +59,5 @@ export class MainPage extends React.Component {
         )
     }
 }
+
+export default connect("category, keyWord, categoryOrSearch", actions)(withRouter(MainPage));

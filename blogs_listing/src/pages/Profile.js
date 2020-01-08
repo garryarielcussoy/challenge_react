@@ -1,17 +1,16 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import {Header} from "../components/Header";
-
-const setLogin = () => {
-    this.setItem("is_login", false)
-}
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions, store } from "../store";
 
 export const Profile = props => {
-  const is_login = JSON.parse(localStorage.getItem("is_login"));
-  const email = localStorage.getItem("email");
-  const full_name = localStorage.getItem("name");
-  console.warn("is_login", is_login);
-  if (is_login === null) {
+  const isLogin = props.isLogin;
+  const email = props.email;
+  const full_name = props.name;
+  console.warn("isLogin", props.isLogin);
+  if (isLogin === null) {
     return <Redirect to={{ pathname: "/masuk" }} />;
   } else {
     return (
@@ -36,3 +35,5 @@ export const Profile = props => {
     );
   }
 };
+
+export default connect("isLogin, email, name", actions)(withRouter(Profile));
