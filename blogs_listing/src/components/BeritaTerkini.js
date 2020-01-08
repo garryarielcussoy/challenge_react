@@ -3,32 +3,31 @@ import '../styles/bootstrap.min.css'
 import '../styles/main.css'
 import axios from 'axios'
 import loadingLogo from '../img/logo.svg'
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions, store } from "../store";
 
 // News API
 const apiKey = '9975f97755874c9fb9b501d61a9cff2a'
 const baseUrl = 'https://newsapi.org/v2/'
 const urlHeadline = baseUrl + "top-headlines?country=us&apiKey=" + apiKey
 
-export class BeritaTerkini extends React.Component {
-    state = {
-        judulBeritaTerkini: [],
-        isLoading: true 
-    }
-
+class BeritaTerkini extends React.Component {
     componentDidMount = () => {
         const self = this;
         axios
             .get(urlHeadline)
-            .then(function(response){
-                self.setState({judulBeritaTerkini: response.data.articles, isLoading: false})
+            .then(async function(response){
+                await store.setState({judulBeritaTerkini: response.data.articles, isLoading: false})
             })
             .catch(function(response){
-                self.setState({isLoading: false})
+                store.setState({isLoading: false})
             })
     }
     
     render(){
-        const {judulBeritaTerkini, isLoading} = this.state
+        const judulBeritaTerkini = this.props.judulBeritaTerkini
+        const isLoading = this.props.isLoading
         
         // To take the first five top headlines
         const top_five_headlines = judulBeritaTerkini.filter((element, key) => key <= 4);
@@ -72,3 +71,5 @@ export class BeritaTerkini extends React.Component {
         }
     }
 }
+
+export default connect("category, isLoading, judulBeritaTerkini", actions)(withRouter(BeritaTerkini));

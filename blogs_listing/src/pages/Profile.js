@@ -1,16 +1,16 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import {Header} from "../components/Header";
+import Header from "../components/Header";
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { actions, store } from "../store";
 
-export const Profile = props => {
+const Profile = props => {
   const isLogin = props.isLogin;
   const email = props.email;
-  const full_name = props.name;
+  const fullName = props.name;
   console.warn("isLogin", props.isLogin);
-  if (isLogin === null) {
+  if (isLogin === null | isLogin === false) {
     return <Redirect to={{ pathname: "/masuk" }} />;
   } else {
     return (
@@ -28,7 +28,7 @@ export const Profile = props => {
             <label>Email:</label> {email}
           </p>
           <p>
-            <label>Full Name:</label> {full_name}
+            <label>Full Name:</label> {fullName}
           </p>
         </form>
       </React.Fragment>

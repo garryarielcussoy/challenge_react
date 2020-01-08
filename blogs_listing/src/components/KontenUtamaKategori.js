@@ -5,50 +5,31 @@ import shareIcon from '../img/share_icon.png'
 import dislikeIcon from '../img/dislike_icon.png'
 import axios from 'axios'
 import loadingLogo from '../img/logo.svg'
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions, store } from "../store";
 
 // News API
 const apiKey = '9975f97755874c9fb9b501d61a9cff2a'
 const baseUrl = 'https://newsapi.org/v2/'
 const urlHeadline = baseUrl + "everything?sources=cnn&apiKey=" + apiKey
 
-export class KontenUtamaKategori extends React.Component {
-    // Define state
-    state = {
-        beritaUtama: [],
-        isLoading: true,
-        keyWord: this.props.keyWord
-    }
-
-    // Receive new props
-    componentWillReceiveProps = (incomingChange) => {
-        console.warn('incoming change on props value', incomingChange.category)
-        const self = this;
-        
-        axios
-            .get(baseUrl + "everything?q=" + incomingChange.category + "&apiKey=" + apiKey)
-            .then(function(response){
-                self.setState({beritaUtama: response.data.articles, isLoading: false})
-            })
-            .catch(function(response){
-                self.setState({isLoading: false})
-            })
-            console.warn('response', this.state.beritaUtama)
-    }
-    
+class KontenUtamaKategori extends React.Component {
     componentDidMount = () => {
         const self = this;
         axios
             .get(urlHeadline)
             .then(function(response){
-                self.setState({beritaUtama: response.data.articles, isLoading: false})
+                store.setState({beritaUtama: response.data.articles, isLoading: false})
             })
             .catch(function(response){
-                self.setState({isLoading: false})
+                store.setState({isLoading: false})
             })
     }
 
     render(){
-        const {beritaUtama, isLoading} = this.state
+        const beritaUtama = this.props.beritaUtama
+        const isLoading = this.props.isLoading
 
         // Take news only if the image is not null
         const beritaUtamaDenganImage = beritaUtama.filter(element => element.urlToImage !== null) 
@@ -93,3 +74,5 @@ export class KontenUtamaKategori extends React.Component {
         }
     }
 }
+
+export default connect("isLoading, keyWord, beritaUtama, categoryOrSearch", actions)(withRouter(KontenUtamaKategori));

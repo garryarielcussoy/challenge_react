@@ -1,32 +1,17 @@
 import React from 'react'
 import '../styles/bootstrap.min.css'
-import {Header} from '../components/Header'
-import {BeritaTerkini} from '../components/BeritaTerkini'
-import {KontenUtama} from '../components/KontenUtama'
-import {KontenUtamaKategori} from '../components/KontenUtamaKategori'
+import Header from '../components/Header'
+import BeritaTerkini from '../components/BeritaTerkini'
+import KontenUtama from '../components/KontenUtama'
+import KontenUtamaKategori from '../components/KontenUtamaKategori'
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
 import { actions, store } from "../store";
 
-export class MainPage extends React.Component {
-    // Define state
-    // state = {
-    //     category: '',
-    //     keyWord: 'math',
-    //     categoryOrSearch: 'math'
-    // }
-    
-    // clickTab = async (something) => {
-    //     await store.setState({category: something, categoryOrSearch: 'category'})
-    //     console.warn('check state value of category', this.props.category)
-    // }
-
-    // searchByWord = async(something) => {
-    //     await store.setState({keyWord: something, categoryOrSearch: 'search'})
-    //     console.warn('check state value of keyword', this.props.keyWord)
-    // }
-
+class MainPage extends React.Component {
     render() {
+        console.warn("cek store pada main page", this.props);
+        
         return (
             <div>
                 <Header />

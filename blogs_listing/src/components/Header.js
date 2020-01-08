@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/bootstrap.min.css'
 import '../styles/main.css'
 import reactLogo from '../img/logo.svg'
-import {SearchBar} from '../components/SearchBar'
+import SearchBar from '../components/SearchBar'
 import {BrowserRouter, Route, Link, Redirect} from 'react-router-dom'
 import { withRouter } from "react-router-dom";
 import { connect } from "unistore/react";
@@ -10,7 +10,7 @@ import { actions, store } from "../store";
 
 const listCategory = ["Sport", "Economy", "Health", "Entertainment"]
 
-export class Header extends React.Component {    
+class Header extends React.Component {    
     handleClick = () => {
         console.warn("check whether handleClick is execute or not")
         store.setState({
@@ -20,31 +20,11 @@ export class Header extends React.Component {
             email: ''
         })
         alert("Sukses logout")
-        return <Redirect to={{ pathname: "/" }} />;
+        this.props.history.push("/masuk")
     }
-    
-    // handleClick = () => {
-    //     console.warn("check whether handleClick is execute or not")
-    //     localStorage.removeItem("is_login");
-    //     localStorage.removeItem("accKey");
-    //     localStorage.removeItem("name");
-    //     localStorage.removeItem("email");
-    //     alert("Sukses logout")
-    //     return <Redirect to={{ pathname: "/" }} />;
-    // }
-
-    clickTab = async (something) => {
-        await store.setState({category: something, categoryOrSearch: 'category'})
-        console.warn('check state value of category', this.props.category)
-    }
-
-    // searchByWord = async(something) => {
-    //     await store.setState({keyWord: something, categoryOrSearch: 'search'})
-    //     console.warn('check state value of keyword', this.props.keyWord)
-    // }
     
     render(){
-        const is_login = this.props.isLogin;
+        const isLogin = this.props.isLogin;
         console.warn(this.props)
         return (
             <header>
@@ -57,7 +37,7 @@ export class Header extends React.Component {
                         <div className='col-md-5 col-sm-12'>
                             <ul className='list-unstyled topic-menu'>
                             {listCategory.map(category => 
-                                <li><a onClick={() => this.clickTab(category)} href=''><Link to={'/category/' + category}>{category}</Link></a></li>
+                                <li><a onClick={() => this.props.clickTab(category)} href=''><Link to={'/category/' + category}>{category}</Link></a></li>
                             )}
                             </ul>
                         </div>
